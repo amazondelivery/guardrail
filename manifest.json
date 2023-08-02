@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Guardrail - Content Blocker",
+    "version": "0.0.1",
+    "description": "Protect your guests, children, and, most importantly, yourself.",
+
+    "icons": {
+        "16": "images/guardraillogo.jpeg",
+        "32": "images/guardraillogo.jpeg",
+        "48": "images/guardraillogo.jpeg",
+        "128": "images/guardraillogo.jpeg"
+    },
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "host_permissions": [
+        "https://developer.chrome.com/*"
+    ],
+
+    "permissions": [
+        "tabs"
+    ],
+
+    "action": {
+        "default_popup": "popup.html"
+    },
+
+    "content_scripts": [ {
+        "js": ["scripts/content.js"],
+        "matches": [
+            "https://developer.chrome.com/docs/extensions/*",
+            "https://developer.chrome.com/docs/webstore/*"
+        ]
+    }
+    ]
+}
